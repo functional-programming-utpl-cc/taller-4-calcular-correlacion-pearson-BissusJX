@@ -1,0 +1,14 @@
+val values = List((72,115),(76,121),(78,125),(81,130),(89,141),(95,150),(108,165),(115,170),(120,177),(130,178))
+val n = (tabla:List[(Int,Int)]) => tabla.map(x=>x).length
+val xMed = (tabla:List[(Int,Int)]) => tabla.map(x=>x._1).sum.toFloat/n(tabla)
+xMed(values)
+val yMed = (tabla:List[(Int,Int)]) => tabla.map(x=>x._2).sum.toFloat/n(tabla)
+yMed(values)
+val x = (tabla:List[(Int,Int)]) => tabla.map(x=>x._1 - xMed(tabla))
+val y = (tabla:List[(Int,Int)]) => tabla.map(x=>x._2 - yMed(tabla))
+x(values)
+y(values)
+val xy = (tabla:List[(Int,Int)]) => ((x(tabla).sum*y(tabla).sum)).toFloat
+xy(values)
+val r = (tabla:List[(Int,Int)]) => xy(tabla)/Math.sqrt(Math.pow((x(tabla)).sum,2).toFloat)
+r(values)
